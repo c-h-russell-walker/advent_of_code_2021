@@ -1,2 +1,3 @@
+# TODO - Add black, flake8, mypy, isort - all the things
 ipdb==0.13.9
 requests==2.26.0
