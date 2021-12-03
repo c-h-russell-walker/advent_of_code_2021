@@ -1,6 +1,7 @@
 [flake8]
 ignore = 
     E731,
+    E203,
     W503
 exclude = 
     .git,
