@@ -11,7 +11,7 @@ def solve_puzzle() -> None:
     length = len(entries[0])
 
     for i in range(length):
-        ctr = Counter([int(val[i]) for val in entries])
+        ctr = Counter([val[i] for val in entries])
         # Since these are binary we can calculate both gamma and epsilon
         gamma += str(ctr.most_common()[0][0])
         epsilon += str(ctr.most_common()[1][0])
