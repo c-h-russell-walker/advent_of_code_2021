@@ -17,4 +17,4 @@ Be sure to get your session cookie (from chrome devtools for instance) and set a
 
 ### Example call:
 
-`SESSION_COOKIE=<MY_SESSION_COOKIE> python3 -m day_one.solution_one`
+`SESSION_COOKIE=<MY_SESSION_COOKIE> python3 -m day_1.solution_one`
