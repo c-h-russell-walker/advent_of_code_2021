@@ -27,8 +27,7 @@ def _check_board_for_bingo(board: BoardType) -> bool:
 def _sum_unmarked_numbers(board: BoardType) -> int:
     total = 0
     for row in board:
-        for tile in row:
-            total += tile.marked
+        total += sum([tile.number for tile in row if not tile.marked])
     return total
 
 
@@ -75,6 +74,7 @@ def solve_puzzle(use_test_data: bool = False) -> None:
         for board in boards:
             if _check_board_for_bingo(board=board):
                 unmarked_sum = _sum_unmarked_numbers(board)
+                print(f'Sum of unmarked tiles: {unmarked_sum}\n')
                 print(f'Final Score: {_calculate_final_score(unmarked_sum=unmarked_sum, final_number=random_num)}')
                 break
 
