@@ -54,7 +54,7 @@ def solve_puzzle(use_test_data: bool = False) -> None:
 
     data = _get_data(use_test_data=use_test_data)
     split_data = data.split('\n')
-    random_numbers = split_data[0].split(',')
+    random_numbers = [int(num) for num in split_data[0].split(',')]
     boards_data = split_data[1:]
 
     temp_board: BoardType = []
@@ -65,7 +65,7 @@ def solve_puzzle(use_test_data: bool = False) -> None:
                 boards.append(temp_board)
                 temp_board = []
         else:
-            board_data = [BoardTile(num, False) for num in raw_board_data.split(' ') if num.strip()]
+            board_data = [BoardTile(int(num), False) for num in raw_board_data.split(' ') if num.strip()]
             temp_board.append(board_data)
 
     for random_num in random_numbers:
