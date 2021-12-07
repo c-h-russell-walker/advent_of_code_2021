@@ -11,19 +11,29 @@ BoardType = List[List[BoardTile]]
 
 
 def _mark_bingo_board(board: BoardType, number: int) -> None:
-    pass
+    for row in board:
+        for tile in row:
+            if tile.number == number:
+                tile = tile._replace(marked=True)
 
 
 def _check_board_for_bingo(board: BoardType) -> bool:
+    # Check horizontals
+    # Check verticals
+    # Check two diagonals
     pass
 
 
 def _sum_unmarked_numbers(board: BoardType) -> int:
-    pass
+    total = 0
+    for row in board:
+        for tile in row:
+            total += tile.marked
+    return total
 
 
 def _calculate_final_score(unmarked_sum: int, final_number: int) -> int:
-    pass
+    return unmarked_sum * final_number
 
 
 # TODO - Move this to a utility function
