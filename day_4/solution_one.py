@@ -12,9 +12,9 @@ BoardType = List[List[BoardTile]]
 
 def _mark_bingo_board(board: BoardType, number: int) -> None:
     for row in board:
-        for tile in row:
+        for idx, tile in enumerate(row):
             if tile.number == number:
-                tile = tile._replace(marked=True)
+                row[idx] = tile._replace(marked=True)
 
 
 def _check_board_for_bingo(board: BoardType) -> bool:
