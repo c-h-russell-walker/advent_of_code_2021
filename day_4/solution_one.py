@@ -18,10 +18,32 @@ def _mark_bingo_board(board: BoardType, number: int) -> None:
 
 
 def _check_board_for_bingo(board: BoardType) -> bool:
+    board_length = len(board[0])
+
     # Check horizontals
+    for row in board:
+        bingo = all([tile.marked for tile in row])
+        if bingo:
+            print(f"BINGO! in horizontal row:\n{', '.join([str(tile.number) for tile in row])}")
+            return True
     # Check verticals
+    for col_idx in range(board_length):
+        column_markers = []
+        for row in board:
+            column_markers.append(row[col_idx].marked)
+        if all(column_markers):
+            print("BINGO! in vertical column!")
+            return True
+
     # Check two diagonals
-    pass
+    diagnoal_markers = []
+    for idx in range(board_length):
+        diagnoal_markers.append(board[idx][idx].marked)
+    if all(diagnoal_markers):
+        print("BINGO! in diagonal!")
+        return True
+
+    return False
 
 
 def _sum_unmarked_numbers(board: BoardType) -> int:
