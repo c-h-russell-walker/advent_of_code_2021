@@ -71,6 +71,7 @@ def _get_data(use_test_data: bool = False) -> Any:
 
 
 def solve_puzzle(use_test_data: bool = False) -> None:
+    bingo = False
     boards = []
 
     data = _get_data(use_test_data=use_test_data)
@@ -98,7 +99,10 @@ def solve_puzzle(use_test_data: bool = False) -> None:
                 unmarked_sum = _sum_unmarked_numbers(board)
                 print(f'Sum of unmarked tiles: {unmarked_sum}\n')
                 print(f'Final Score: {_calculate_final_score(unmarked_sum=unmarked_sum, final_number=random_num)}')
+                bingo = True
                 break
+        if bingo:
+            break
 
 
 if __name__ == '__main__':
